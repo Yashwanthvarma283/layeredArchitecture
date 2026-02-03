@@ -5,6 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -27,20 +28,20 @@ class UserControllerTest {
     public void test() throws Exception {
         String json = """
                     {
-                       "fullName": "Joh Doe",
-                       "birthDate": "03.04.1995",
-                       "gender": "MALE",
-                       "email": "test@example.com",
-                       "mobile": "017366576657"
+                            "fullName": "Joh Doe",
+                            "birthDate": "1995-02-25",
+                            "gender": "MALE",
+                            "email": "test@example.com",
+                            "mobile": "017366576657"
                      }
                 """;
 
         mvc.perform(post("/user")
-                .contentType("applciation/json")
-                                .content(json)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(json)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("uuid").value("5445bd2c-5f80-400b-a19b-74eb12a0efcc"));
+                .andExpect(jsonPath("id").value("5445bd2c-5f80-400b-a19b-74eb12a0efcc"));
     }
 }

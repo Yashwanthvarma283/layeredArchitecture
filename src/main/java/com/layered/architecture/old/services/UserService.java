@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-@Service
+//@Service
 public class UserService {
 
     private final UserAdapter userAdaptor;
