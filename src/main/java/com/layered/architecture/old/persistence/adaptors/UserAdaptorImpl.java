@@ -1,20 +1,15 @@
 package com.layered.architecture.old.persistence.adaptors;
 
-import com.layered.architecture.old.entities.User;
 import com.layered.architecture.old.models.UserCreationModel;
-import com.layered.architecture.old.persistence.repositories.UserRepository;
-import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
-import java.util.concurrent.ThreadLocalRandom;
+import com.layered.architecture.old.persistence.repositories.UserRepository1;
 
 
-@Component
+//@Component
 public class UserAdaptorImpl implements UserAdapter {
 
 
 
-    private UserRepository repository;
+    private UserRepository1 repository;
 
 
 

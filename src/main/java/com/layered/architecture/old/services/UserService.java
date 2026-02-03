@@ -3,24 +3,19 @@ package com.layered.architecture.old.services;
 import com.layered.architecture.old.persistence.adaptors.UserAdapter;
 import com.layered.architecture.old.persistence.adaptors.UserAdaptorImpl;
 import com.layered.architecture.old.entities.User;
-import com.layered.architecture.old.controllers.dto.CreateUserDTO;
-import com.layered.architecture.old.models.UserCreationModel;
-import com.layered.architecture.old.models.UserPersonalInfo;
-import com.layered.architecture.old.persistence.repositories.UserRepository;
-import org.springframework.stereotype.Service;
+import com.layered.architecture.old.persistence.repositories.UserRepository1;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 //@Service
 public class UserService {
 
     private final UserAdapter userAdaptor;
-    private final UserRepository userRepository;
-    public UserService(UserAdaptorImpl userAdaptor, UserRepository userRepository){
+    private final UserRepository1 userRepository1;
+    public UserService(UserAdaptorImpl userAdaptor, UserRepository1 userRepository1){
         this.userAdaptor=userAdaptor;
-        this.userRepository = userRepository;
+        this.userRepository1 = userRepository1;
     }
 //
 //    public void createUser(CreateUserDTO newUser){
@@ -38,11 +33,12 @@ public class UserService {
 //    }
 
     public List<User> getAll() {
-        return userRepository.findAll();
+        return List.of();
+//        return userRepository1.findAll();
     }
 
     public User getUser(int id) {
-        return userRepository.findUsersById(id);
+        return userRepository1.findUsersById(id);
     }
 
 //    public void updateFeedback(int id, UserPersonalInfo info) {
