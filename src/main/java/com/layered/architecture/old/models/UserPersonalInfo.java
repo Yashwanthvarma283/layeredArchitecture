@@ -1,4 +1,4 @@
-package com.layered.architecture.models;
+package com.layered.architecture.old.models;
 
 
 import lombok.Getter;

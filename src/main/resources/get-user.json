@@ -1,0 +1,6 @@
+// admin can see
+{
+  "id": 1234,
+  "fullName": "John Doe",
+  "age": 20
+}

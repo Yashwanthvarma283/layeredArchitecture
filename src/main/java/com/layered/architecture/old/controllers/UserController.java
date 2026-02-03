@@ -1,16 +1,18 @@
-package com.layered.architecture.controllers;
+package com.layered.architecture.old.controllers;
 
 
-import com.layered.architecture.entities.User;
-import com.layered.architecture.models.CreateUser;
-import com.layered.architecture.models.UserPersonalInfo;
-import com.layered.architecture.services.UserService;
+import com.layered.architecture.old.entities.User;
+import com.layered.architecture.old.controllers.dto.CreateUserDTO;
+import com.layered.architecture.old.models.UserCreationModel;
+import com.layered.architecture.old.models.UserPersonalInfo;
+import com.layered.architecture.old.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Mapping
 public class UserController {
 
     private final UserService userService;
@@ -19,8 +21,10 @@ public class UserController {
     }
 
     @PostMapping("/create/user")
-    public ResponseEntity<String> createUser(@RequestBody CreateUser newUser){
-        userService.createUser(newUser);
+    public ResponseEntity<String> createUser(@RequestBody CreateUserDTO newUser){
+
+        UserCreationModel model = new UserCreationModel(newUser.getName(), newUser.getEmail(), newUser.getAge());
+        userService.createUser(model);
         return ResponseEntity.ok("Donor Created");
     }
 

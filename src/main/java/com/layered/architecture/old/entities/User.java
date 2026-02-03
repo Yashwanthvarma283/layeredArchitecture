@@ -1,4 +1,4 @@
-package com.layered.architecture.entities;
+package com.layered.architecture.old.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
